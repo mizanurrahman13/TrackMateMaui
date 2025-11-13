@@ -1,0 +1,51 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:TrackMateMaui.ViewModels"
+             x:Class="TrackMateMaui.Views.CreateTaskPage">
+
+    <!--<ContentPage.BindingContext>
+        <viewModels:CreateTaskViewModel />
+    </ContentPage.BindingContext>-->
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Entry Placeholder="Task Name" Text="{Binding Name}" />
+            <Editor Placeholder="Description" Text="{Binding Description}" />
+
+            <Picker Title="Category" SelectedItem="{Binding Category}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Work</x:String>
+                        <x:String>Study</x:String>
+                        <x:String>Fitness</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Priority" SelectedItem="{Binding Priority}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>High</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>Low</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Status" SelectedItem="{Binding Status}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Yet to start</x:String>
+                        <x:String>In Progress</x:String>
+                        <x:String>Completed</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <DatePicker Date="{Binding StartedAt}" />
+            <DatePicker Date="{Binding EndAt}" />
+
+            <Button Text="Save Task" Command="{Binding SaveTaskCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
